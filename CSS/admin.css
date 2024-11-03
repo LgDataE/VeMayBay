@@ -40,28 +40,26 @@ body {
     display: block;
 }
 
-/* li .dropdown {
-    width: 100%;
-    background: #22438C;
-    position: absolute;
-    z-index: 999;
-    display: none;
+.admin-sidebar ul li .drop-down {
+    display: none; 
+    /* padding-left: 20px; */
+    /* position: absolute; */
+    background-color: hsl(0, 0%, 95%);
+    min-width: 100px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
 }
 
-.dropdown li {
-    display: block;
-} */
-
-.admin-sidebar ul .drop-down {
-    /* display: none; Ẩn danh sách con */
-    padding-left: 20px;
-}
-
- .drop-down li {
+ .drop-down a {
     display: block; 
     color: black;
+    padding: 10px 15px;
 }
 
 .admin-sidebar ul li:hover {
-    background-color: #bae4e8;
+    background-color: #256b71;
 }
+
+.admin-sidebar ul li:hover .drop-down {
+    display: block;
+}
+
