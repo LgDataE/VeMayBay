@@ -40,6 +40,28 @@ body {
     display: block;
 }
 
+/* li .dropdown {
+    width: 100%;
+    background: #22438C;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+.dropdown li {
+    display: block;
+} */
+
+.admin-sidebar ul .drop-down {
+    /* display: none; Ẩn danh sách con */
+    padding-left: 20px;
+}
+
+ .drop-down li {
+    display: block; 
+    color: black;
+}
+
 .admin-sidebar ul li:hover {
     background-color: #bae4e8;
 }
