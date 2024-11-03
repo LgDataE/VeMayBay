@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background: #fff;   
+}
+
+.manage-container {
+    display: flex;
+    position: relative;
+}
+
+.manage-container .admin-sidebar {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background-color: rgb(53, 153, 184);
+    padding: 15px 0;
+}
+
+.admin-sidebar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.admin-sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(225, 225, 225, 0.05);
+    list-style: none;  
+}
+
+.admin-sidebar ul li a {
+    color: #d6d4de;
+    display: block;
+}
+
+.admin-sidebar ul li:hover {
+    background-color: #bae4e8;
+}
