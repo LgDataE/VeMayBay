@@ -12,6 +12,7 @@ body {
 .manage-container {
     display: flex;
     position: relative;
+    height: 100vh;
 }
 
 .manage-container .admin-sidebar {
@@ -20,6 +21,7 @@ body {
     height: 100%;
     background-color: rgb(53, 153, 184);
     padding: 15px 0;
+    float: left;
 }
 
 .admin-sidebar h2 {
@@ -63,3 +65,68 @@ body {
     display: block;
 }
 
+.form-section {
+    /* display: flex; */
+    margin-left: 200px;
+    padding: 20px;
+    background-color: rgb(189, 228, 240);
+    flex: 1;
+    align-items: center;
+}
+
+.form-section .main-form {
+    width: 523px;
+    background-color: white;
+    padding: 20px;
+    /* border-radius: 10px; */
+}
+.form-section .main-form div.form-uneditable-group, div.form-editable-group {
+    width: 100%;
+    display: flex;
+}
+
+.form-section form button.btn-primary {
+    background-color: rgb(53, 153, 184);
+    border-color: rgb(53, 153, 184);
+}
+
+.form-section .main-form label {
+    text-align: center;
+    display: inline-flex;
+    width: 100px;
+}
+
+.form-section .main-form input {
+    margin-right: 5px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.form-section .main-form .input-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+}
+
+.form-inner {
+    box-shadow: 0px 1px 2px 0px rgba(60, 64, 67, 0.3),
+    0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.form-container .form-title-container {
+    padding: 0 20px;
+    display: flex;
+    width: 523px;
+    background-color: rgb(94, 146, 195);
+}
+
+.form-container h4 {
+    background-color: rgb(94, 146, 195);
+    margin: 0;
+    margin: 20px 0;
+    width: 100%;
+    color: white;
+}
