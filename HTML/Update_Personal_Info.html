@@ -3,241 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý</title>
-    <link rel="stylesheet" href="/CSS/admin.css">
+    <title>Update Personal Information</title>
+    <link rel="stylesheet" href="/CSS/admin1.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
     <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="/Bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="navbar">
-            <img src="/assets/image/Logo.jpeg" alt="" style="height: 100px;">
-        </div>
+        <nav>
+            <div class="logo">
+                <i class="bx bx-menu bx-md menu-icon"></i>
+                <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
+                <span class="logo-name">HighFlight</span>
+            </div>
+            <div class="sidebar">
+                <div class="logo">
+                    <i class="bx bx-menu bx-md menu-icon"></i>
+                    <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
+                    <span class="logo-name">HighFlight</span>
+                </div>
+
+                <div class="sidebar-name">
+                    <h5>Nhân Viên</h5>
+                </div>
+                <div class="sidebar-content">
+                    <ul class="lists">
+                        <li class="list">
+                            <a href="Update_Personal_Info.html" class="sidebar-link">
+                                <i class='bx bxs-info-circle'></i>
+                                <span class="link">Đổi thông tin cá nhân</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#" class="sidebar-link">
+                                <i class='bx bxs-coupon'></i>
+                                <span class="link">Quản lý thông tin vé</span>
+                            </a>
+                            <ul class="drop-down">
+                                <li><a href="">Tạo</a></li>
+                                <li><a href="">Xoá</a></li>
+                                <li><a href="">Cập nhật</a></li>
+                                <li><a href="">Xem</a></li>
+                            </ul>
+                        </li>
+                        <li class="list">
+                            <a href="#" class="sidebar-link">
+                                <i class='bx bxs-file-find'></i>
+                                <span class="link">Tìm chuyến bay</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#" class="sidebar-link">
+                                <i class='bx bxs-user-detail' ></i>
+                                <span class="link">Quản lý thông tin khách hàng</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#" class="sidebar-link">
+                                <i class='bx bxs-credit-card-front' ></i>
+                                <span class="link">Thanh toán</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#" class="sidebar-link">
+                                <i class='bx bxs-note'></i>
+                                <span class="link">Quản lý hoá đơn</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     <div class="manage-container ">
 
-        <!-- Sidebar -->
-        <div class="admin-sidebar">
-            <h2>Nhân Viên</h2>
-            <ul>
-                <li><a href="Update_Personal_Info.html">Đổi thông tin cá nhân</a></li>
-                <li>
-                    <a href="#">Quản lý thông tin vé</a>
-                    <div class="drop-down">
-                        <a href="">Tạo</a>
-                        <a href="">Xóa</a>
-                        <a href="">Cập nhật</a>
-                        <a href="">Xem</a>
-                    </div>
-                </li>
-                <li><a href="#">Tìm chuyến bay</a></li>
-                <li><a href="#">Quản lý thông tin khách hàng</a></li>
-                <li><a href="#">Thanh toán</a></li>
-                <li><a href="#">Quản lý hóa đơn</a></li>
-            </ul>
-        </div>
-
-        <!---Update Personal Info Form-->
+        <!--Update Personal Info Form-->
         <div class="form-section">
-            <div class="form-container ps-5 pt-5">
-                <div class="form-inner">
-                    <div class="form-title-container">
-                        <h4>Đổi thông tin cá nhân</h4>
-                    </div>
-    
-                    <form action="" method="post" class="main-form d-flex flex-column">
+            <div class="form-container flex-column justify-content-center align-items-center ps-5 pt-5">
         
-                        <div class="form-uneditable-group d-flex justify-content-between">
-                            <div class="input-container">
-                                <label for="employee-name">Họ và tên:</label>
-                                <input type="text" id="employee-name" name="employee-name" value="Nguyễn Văn A" disabled size="20" maxlength="50">
-                            </div>
-                            
-                            <div class="input-container">
-                                <label for="employee-gender">Giới tính:</label>
-                                <input type="text" id="employee-gender" class="me-0" name="employee-gender" value="Nam" disabled size="3" maxlength="5">
-                            </div>
-                        </div>
-                        <br>
-        
-                        <div class="form-editable-group d-flex justify-content-between">
-                            <div class="input-container">
-                                <label for="employee-email">Email:</label>
-                                <input type="email" id="employee-email" name="employee-email" value="nguyenVA@gmail.com" readonly maxlength="50" size="40">
-        
-                                <!-- Button for change email modal -->
-                                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#changeEmailModal" onclick="getCurrentInformation()">Sửa</button>
-                            </div>
-                        </div>
-                        <br>
-                        
-                        <div class="form-editable-group d-flex justify-content-between">
-                            <div class="input-container">
-                                <label for="employee-phone-number">Số điện thoại:</label>
-                                <input type="text" id="employee-phone-number" name="employee-phone-number" value="02838352020" readonly maxlength="10" size="40">
-            
-                                <!-- Button for change phone number modal -->
-                                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#changePhoneNumberModal" onclick="getCurrentInformation()">Sửa</button>
-                            </div>
-        
-                        </div>
-                        <br>
-        
-                        <div class="form-editable-group d-flex justify-content-between">
-                            <div class="input-container">
-                                <label for="employee-address">Địa chỉ:</label>
-                                <input type="text" id="employee-address" name="employee-address" value="280 An Dương Vương, Quận 5, TP.HCM" readonly size="40" maxlength="200">
-        
-                                <!-- Button for change address modal -->
-                                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#changeAddressModal" onclick="getCurrentInformation()">Sửa</button>
-                            </div>
-                        </div>
-                        <br><br>
-        
-                        <div class="form-editable-group justify-content-end">
-                            <!-- Button for change password modal -->
-                            <button type="button" class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#changePasswordModal">Đổi mật khẩu</button>
-    
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary submit-button">Lưu thay đổi</button>
-                        </div>
-        
-                    </form>
+                <div class="form-title-container">
+                    <h4>Đổi thông tin cá nhân</h4>
                 </div>
+
+                <form action="" method="post" class="main-form d-flex flex-column">
+
+                    <div class="form-uneditable-group d-flex justify-content-between">
+                        <div class="input-container">
+                            <label for="employee-name">Họ và tên:</label>
+                            <input type="text" id="employee-name" name="employee-name" value="Nguyễn Văn A" disabled size="20" maxlength="50">
+                        </div>
+                        
+                        <div class="input-container">
+                            <label for="employee-gender">Giới tính:</label>
+                            <input type="text" id="employee-gender" class="me-0" name="employee-gender" value="Nam" disabled size="3" maxlength="5">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="form-editable-group d-flex justify-content-between">
+                        <div class="input-container">
+                            <label for="employee-email">Email:</label>
+                            <input type="email" id="employee-email" name="employee-email" value="nguyenVA@gmail.com" readonly maxlength="50" size="40">
+
+                            <!-- Button for change email modal -->
+                            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#changeEmailModal" onclick="getCurrentInformation()">Sửa</button>
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <div class="form-editable-group d-flex justify-content-between">
+                        <div class="input-container">
+                            <label for="employee-phone-number">Số điện thoại:</label>
+                            <input type="text" id="employee-phone-number" name="employee-phone-number" value="02838352020" readonly maxlength="10" size="40">
+        
+                            <!-- Button for change phone number modal -->
+                            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#changePhoneNumberModal" onclick="getCurrentInformation()">Sửa</button>
+                        </div>
+
+                    </div>
+                    <br>
+
+                    <div class="form-editable-group d-flex justify-content-between">
+                        <div class="input-container">
+                            <label for="employee-address">Địa chỉ:</label>
+                            <input type="text" id="employee-address" name="employee-address" value="280 An Dương Vương, Quận 5, TP.HCM" readonly size="40" maxlength="200">
+
+                            <!-- Button for change address modal -->
+                            <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#changeAddressModal" onclick="getCurrentInformation()">Sửa</button>
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <div class="form-editable-group justify-content-end">
+                        <!-- Button for change password modal -->
+                        <button type="button" class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#changePasswordModal">Đổi mật khẩu</button>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary submit-button">Lưu thay đổi</button>
+                    </div>
+
+                </form>
                 
             </div>
 
-            <!-- Change email modal -->
-            <div class="modal fade" id="changeEmailModal" tabindex="-1" aria-labelledby="changeEmailModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="changeEmailModalLabel">Đổi email</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="currentEmail" class="form-label">Email hiện tại</label>
-                                    <input type="email" class="form-control" id="currentEmail" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="newEmail" class="form-label">Email mới</label>
-                                    <input type="email" class="form-control" id="newEmail" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="confirmEmail" class="form-label">Xác nhận email mới</label>
-                                    <input type="email" class="form-control" id="confirmEmail" required>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                            <button type="button" class="btn btn-primary">Lưu thay đổi</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Change phone number modal -->
-            <div class="modal fade" id="changePhoneNumberModal" tabindex="-1" aria-labelledby="changePhoneNumberModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="changePhoneNumberModalLabel">Đổi số điện thoại</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="currentPhoneNumber" class="form-label">Số điện thoại hiện tại</label>
-                                    <input type="text" class="form-control" id="currentPhoneNumber" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="newPhoneNumber" class="form-label">Số điện thoại mới</label>
-                                    <input type="text" class="form-control" id="newPhoneNumber" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="confirmPhoneNumber" class="form-label">Xác nhận số điện thoại</label>
-                                    <input type="text" class="form-control" id="confirmPhoneNumber" required>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                            <button type="button" class="btn btn-primary">Lưu thay đổi</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Change password modal -->
-            <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="changePasswordModalLabel">Đổi mật khẩu</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Form đổi mật khẩu -->
-                            <form>
-                                <div class="mb-3">
-                                    <label for="currentPassword" class="form-label">Mật khẩu hiện tại</label>
-                                    <input type="password" class="form-control" id="currentPassword" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="newPassword" class="form-label">Mật khẩu mới</label>
-                                    <input type="password" class="form-control" id="newPassword" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="confirmPassword" class="form-label">Xác nhận mật khẩu mới</label>
-                                    <input type="password" class="form-control" id="confirmPassword" required>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                            <button type="button" class="btn btn-primary">Lưu thay đổi</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Change address modal -->
-            <div class="modal fade" id="changeAddressModal" tabindex="-1" aria-labelledby="changeAddressModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="changeAddressModalLabel">Đổi địa chỉ</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="currentAddress" class="form-label">Địa chỉ hiện tại</label>
-                                    <input type="text" class="form-control" id="currentAddress" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="newAddress" class="form-label">Địa chỉ mới</label>
-                                    <input type="text" class="form-control" id="newAddress" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="confirmAddress" class="form-label">Xác nhận địa chỉ mới</label>
-                                    <input type="text" class="form-control" id="confirmAddress" required>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                            <button type="button" class="btn btn-primary">Lưu thay đổi</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
         </div>
+
+        <!-- Change email modal -->
+        <div class="modal fade" id="changeEmailModal" tabindex="-1" aria-labelledby="changeEmailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="changeEmailModalLabel">Đổi email</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="currentEmail" class="form-label">Email hiện tại</label>
+                                <input type="email" class="form-control" id="currentEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newEmail" class="form-label">Email mới</label>
+                                <input type="email" class="form-control" id="newEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmEmail" class="form-label">Xác nhận email mới</label>
+                                <input type="email" class="form-control" id="confirmEmail" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change phone number modal -->
+        <div class="modal fade" id="changePhoneNumberModal" tabindex="-1" aria-labelledby="changePhoneNumberModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="changePhoneNumberModalLabel">Đổi số điện thoại</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="currentPhoneNumber" class="form-label">Số điện thoại hiện tại</label>
+                                <input type="text" class="form-control" id="currentPhoneNumber" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newPhoneNumber" class="form-label">Số điện thoại mới</label>
+                                <input type="text" class="form-control" id="newPhoneNumber" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPhoneNumber" class="form-label">Xác nhận số điện thoại</label>
+                                <input type="text" class="form-control" id="confirmPhoneNumber" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change password modal -->
+        <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="changePasswordModalLabel">Đổi mật khẩu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form đổi mật khẩu -->
+                        <form>
+                            <div class="mb-3">
+                                <label for="currentPassword" class="form-label">Mật khẩu hiện tại</label>
+                                <input type="password" class="form-control" id="currentPassword" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newPassword" class="form-label">Mật khẩu mới</label>
+                                <input type="password" class="form-control" id="newPassword" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">Xác nhận mật khẩu mới</label>
+                                <input type="password" class="form-control" id="confirmPassword" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change address modal -->
+        <div class="modal fade" id="changeAddressModal" tabindex="-1" aria-labelledby="changeAddressModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="changeAddressModalLabel">Đổi địa chỉ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="currentAddress" class="form-label">Địa chỉ hiện tại</label>
+                                <input type="text" class="form-control" id="currentAddress" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newAddress" class="form-label">Địa chỉ mới</label>
+                                <input type="text" class="form-control" id="newAddress" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmAddress" class="form-label">Xác nhận địa chỉ mới</label>
+                                <input type="text" class="form-control" id="confirmAddress" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
     </div>
 
     <script>
@@ -250,6 +295,22 @@
             document.getElementById('currentPhoneNumber').value = phonenumber;
             document.getElementById('currentAddress').value = address;
         }
+    </script>
+
+    <script>
+        const navBar = document.querySelector("nav"),
+            menuBtns = document.querySelectorAll(".menu-icon"),
+            overlay = document.querySelector(".overlay");
+
+        menuBtns.forEach((menuBtn) => {
+            menuBtn.addEventListener("click", () => {
+                navBar.classList.toggle("open");
+            });
+        });
+
+        overlay.addEventListener("click", () => {
+            navBar.classList.remove("open");
+        });
     </script>
 </body>
 </html>
