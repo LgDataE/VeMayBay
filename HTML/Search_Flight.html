@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Personal Information</title>
-    <link rel="stylesheet" href="/CSS/book_flight.css">
+    <link rel="stylesheet" href="/CSS/search_flight.css">
     <link rel="stylesheet" href="/CSS/sidebar.css">
     <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -14,14 +14,14 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">
+            <!-- <div class="logo">
                 <i class="bx bx-menu bx-md menu-icon"></i>
                 <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
                 <span class="logo-name">HighFlight</span>
-            </div>
+            </div> -->
             <div class="sidebar">
                 <div class="logo">
-                    <i class="bx bx-menu bx-md menu-icon"></i>
+                    <!-- <i class="bx bx-menu bx-md menu-icon"></i> -->
                     <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
                     <span class="logo-name">HighFlight</span>
                 </div>
@@ -64,7 +64,7 @@
                         <li class="list">
                             <a href="#" class="sidebar-link">
                                 <i class='bx bxs-credit-card-front' ></i>
-                                <span class="link">Thanh toán</span>
+                                <span class="link">Đặt vé</span>
                             </a>
                         </li>
                         <li class="list">
@@ -78,34 +78,6 @@
             </div>
         </nav>
     </header>
-
-    <script>
-        function getCurrentInformation() {
-            const email = document.getElementById('employee-email').value;
-            const phonenumber =  document.getElementById('employee-phone-number').value;
-            const address = document.getElementById('employee-address').value;
-
-            document.getElementById('currentEmail').value = email;
-            document.getElementById('currentPhoneNumber').value = phonenumber;
-            document.getElementById('currentAddress').value = address;
-        }
-    </script>
-
-    <script>
-        const navBar = document.querySelector("nav"),
-            menuBtns = document.querySelectorAll(".menu-icon"),
-            overlay = document.querySelector(".overlay");
-
-        menuBtns.forEach((menuBtn) => {
-            menuBtn.addEventListener("click", () => {
-                navBar.classList.toggle("open");
-            });
-        });
-
-        overlay.addEventListener("click", () => {
-            navBar.classList.remove("open");
-        });
-    </script>
 
         <!-- FORM -->
             <div class="container">

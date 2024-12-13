@@ -14,14 +14,14 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">
+            <!-- <div class="logo">
                 <i class="bx bx-menu bx-md menu-icon"></i>
                 <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
                 <span class="logo-name">HighFlight</span>
-            </div>
+            </div> -->
             <div class="sidebar">
                 <div class="logo">
-                    <i class="bx bx-menu bx-md menu-icon"></i>
+                    <!-- <i class="bx bx-menu bx-md menu-icon"></i> -->
                     <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
                     <span class="logo-name">HighFlight</span>
                 </div>
@@ -50,25 +50,25 @@
                             </ul>
                         </li>
                         <li class="list">
-                            <a href="#" class="sidebar-link">
+                            <a href="Search_Flight.html" class="sidebar-link">
                                 <i class='bx bxs-file-find'></i>
                                 <span class="link">Tìm chuyến bay</span>
                             </a>
                         </li>
                         <li class="list">
-                            <a href="#" class="sidebar-link">
+                            <a href="Customer.html" class="sidebar-link">
                                 <i class='bx bxs-user-detail' ></i>
                                 <span class="link">Quản lý thông tin khách hàng</span>
                             </a>
                         </li>
                         <li class="list">
-                            <a href="#" class="sidebar-link">
+                            <a href="Book_Ticket.html" class="sidebar-link">
                                 <i class='bx bxs-credit-card-front' ></i>
-                                <span class="link">Thanh toán</span>
+                                <span class="link">Đặt vé</span>
                             </a>
                         </li>
                         <li class="list">
-                            <a href="#" class="sidebar-link">
+                            <a href="Invoice.html" class="sidebar-link">
                                 <i class='bx bxs-note'></i>
                                 <span class="link">Quản lý hoá đơn</span>
                             </a>
@@ -78,7 +78,7 @@
             </div>
         </nav>
     </header>
-    <div class="manage-container ">
+
 
         <!--Update Personal Info Form-->
         <div class="form-section">
@@ -148,8 +148,6 @@
                 </form>
                 
             </div>
-
-            
 
         </div>
 
@@ -297,20 +295,5 @@
         }
     </script>
 
-    <script>
-        const navBar = document.querySelector("nav"),
-            menuBtns = document.querySelectorAll(".menu-icon"),
-            overlay = document.querySelector(".overlay");
-
-        menuBtns.forEach((menuBtn) => {
-            menuBtn.addEventListener("click", () => {
-                navBar.classList.toggle("open");
-            });
-        });
-
-        overlay.addEventListener("click", () => {
-            navBar.classList.remove("open");
-        });
-    </script>
 </body>
 </html>

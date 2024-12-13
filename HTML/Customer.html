@@ -63,9 +63,9 @@
                             </a>
                         </li>
                         <li class="list">
-                            <a href="#" class="sidebar-link">
+                            <a href="Book_Ticket.html" class="sidebar-link">
                                 <i class='bx bxs-credit-card-front' ></i>
-                                <span class="link">Thanh toán</span>
+                                <span class="link">Đặt vé</span>
                             </a>
                         </li>
                         <li class="list">
@@ -79,34 +79,6 @@
             </div>
         </nav>
     </header>
-
-    <script>
-        function getCurrentInformation() {
-            const email = document.getElementById('employee-email').value;
-            const phonenumber =  document.getElementById('employee-phone-number').value;
-            const address = document.getElementById('employee-address').value;
-
-            document.getElementById('currentEmail').value = email;
-            document.getElementById('currentPhoneNumber').value = phonenumber;
-            document.getElementById('currentAddress').value = address;
-        }
-    </script>
-
-    <script>
-        const navBar = document.querySelector("nav"),
-            menuBtns = document.querySelectorAll(".menu-icon"),
-            overlay = document.querySelector(".overlay");
-
-        menuBtns.forEach((menuBtn) => {
-            menuBtn.addEventListener("click", () => {
-                navBar.classList.toggle("open");
-            });
-        });
-
-        overlay.addEventListener("click", () => {
-            navBar.classList.remove("open");
-        });
-    </script>
     
     <div class="cus-container">
         <h2 class="cus-title">Customer</h2>
@@ -152,9 +124,10 @@
                     <i class="fa fa-globe lock"></i>
                     <input type="text" placeholder="Address" class="text-name">
                 </div>
-
-                <button type="submit" value="Update" class="btnUpdate"> Cập nhật</button>
-                <button type="submit" value="Save" class="btnSave"> Lưu thông tin</button>
+                <div class="button-container">
+                    <button type="submit" value="Update" class="btnUpdate"> Cập nhật</button>
+                    <button type="submit" value="Save" class="btnSave"> Lưu thông tin</button>
+                </div>
             </form>
         </div>
     </div>

@@ -80,34 +80,6 @@ hh<!DOCTYPE html>
         </nav>
     </header>
 
-    <script>
-        function getCurrentInformation() {
-            const email = document.getElementById('employee-email').value;
-            const phonenumber =  document.getElementById('employee-phone-number').value;
-            const address = document.getElementById('employee-address').value;
-
-            document.getElementById('currentEmail').value = email;
-            document.getElementById('currentPhoneNumber').value = phonenumber;
-            document.getElementById('currentAddress').value = address;
-        }
-    </script>
-
-    <script>
-        const navBar = document.querySelector("nav"),
-            menuBtns = document.querySelectorAll(".menu-icon"),
-            overlay = document.querySelector(".overlay");
-
-        menuBtns.forEach((menuBtn) => {
-            menuBtn.addEventListener("click", () => {
-                navBar.classList.toggle("open");
-            });
-        });
-
-        overlay.addEventListener("click", () => {
-            navBar.classList.remove("open");
-        });
-    </script>
-
     <div class="center">
       <div class="tickets">
         <div class="ticket-selector">
@@ -162,6 +134,7 @@ hh<!DOCTYPE html>
         </div>
       </div>
     </div>
+    
     <script>
       let seats = document.querySelector(".all-seats");
       for (var i = 0; i < 39; i++) {

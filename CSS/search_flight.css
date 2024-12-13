@@ -1,9 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* SEARCH_FLIGHT FORM */
 body {
     width: 60vw;
     height: 100vh;
@@ -13,8 +8,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 .container {
+    display: inline;
     width: 100%;
     max-width: 80%;
     background: white;
@@ -67,6 +64,7 @@ button:hover {
 .button-group {
     display: flex;
     justify-content: flex-end;
+    gap: 20px;
 }
 @media (max-width: 600px) {
     body {
