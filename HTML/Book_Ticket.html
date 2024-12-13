@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+hh<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer</title>
-    <link rel="stylesheet" href="/CSS/customer.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Booking</title>
     <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/CSS/book_ticket.css">
     <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/Bootstrap/js/bootstrap.min.js"></script>
-</head>
-<body>
+    <script src="/Bootstrap/js/bootstrap.min.js"></script>    
+  </head>
+
+  <body>
     <!-- Header -->
     <header>
         <nav>
@@ -107,56 +107,97 @@
             navBar.classList.remove("open");
         });
     </script>
-    
-    <div class="cus-container">
-        <h2 class="cus-title">Customer</h2>
-        <div class="form-container">
-            <form action="">
-                <div class="input-name">
-                    <i class="fa fa-user lock"></i>
-                    <input type="text" placeholder="Name" class="text-name">
-                </div>
 
-                <div class="input-name">
-                    <i class="fa fa-birthday-cake lock"></i>
-                    <input type="date" placeholder="dd-mm-yyyy" class="text-name">
-                </div>
-
-                <div class="gender-selection">
-                    <i class="fa fa-male lock"></i>
-                    <label><input type="radio" name="gender" value="male" required> Male</label>
-                    <label><input type="radio" name="gender" value="female"> Female</label>
-                </div>
-
-                <div class="input-name">
-                    <i class="fa fa-tag lock"></i>
-                    <input type="text" placeholder="Nationality" class="text-name">
-                </div>
-
-                <div class="input-name">
-                    <i class="fa fa-envelope lock"></i>
-                    <input type="text" placeholder="Email" class="text-name">
-                </div>
-                
-                <div class="input-name">
-                    <i class="fa fa-id-card lock"></i>
-                    <input type="text" placeholder="ID" class="text-name">
-                </div>
-
-                <div class="input-name">
-                    <i class="fa fa-phone lock"></i>
-                    <input type="text" placeholder="Phone" class="text-name">
-                </div>
-
-                <div class="input-name">
-                    <i class="fa fa-globe lock"></i>
-                    <input type="text" placeholder="Address" class="text-name">
-                </div>
-
-                <button type="submit" value="Update" class="btnUpdate"> Cập nhật</button>
-                <button type="submit" value="Save" class="btnSave"> Lưu thông tin</button>
-            </form>
+    <div class="center">
+      <div class="tickets">
+        <div class="ticket-selector">
+          <div class="head">
+            <div class="title">Book Ticket</div>
+          </div>
+          <div class="seats">
+            <div class="status">
+              <div class="item">Available</div>
+              <div class="item">Booked</div>
+              <div class="item">Selected</div>
+              <div class="item">First-class</div>
+              <div class="item">Economy-class</div>
+              <div class="item">Business-class</div>
+            </div>
+            <div class="all-seats">
+              <input type="checkbox" name="tickets" id="s1" />
+              <label for="s1" class="seat booked"></label>
+            </div>
+          </div>
+          <div class="timings">
+            <div class="dates">
+              <table>
+                <tr>
+                    <th>Mã chuyến bay</th>
+                    <th>Địa điểm khởi hành</th>
+                    <th>Địa điểm đến</th>
+                    <th>Ngày khởi hành</th>
+                    <th>Giờ khởi hành</th>
+                    <th>Giờ đến</th>
+                    <th>Mã máy bay</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="flight-code" placeholder="HF001"></td>
+                    <td><input type="text" name="departure" placeholder="TP. Hồ Chí Minh"></td>
+                    <td><input type="text" name="destination" placeholder="Hà Nội"></td>
+                    <td><input type="date" name="departure-date" value="2024-01-20"></td>
+                    <td><input type="time" name="departure-time" value="07:20"></td>
+                    <td><input type="time" name="arrival-time" value="09:30"></td>
+                    <td><input type="text" name="plane-code" placeholder="HF-A123"></td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
+        <div class="price">
+          <div class="total">
+            <span> <span class="count">0</span> Tickets </span>
+            <div class="amount">0</div>
+          </div>
+          <button type="button">Book</button>
+        </div>
+      </div>
     </div>
-</body>
+    <script>
+      let seats = document.querySelector(".all-seats");
+      for (var i = 0; i < 39; i++) {
+        let randint = Math.floor(Math.random() * 2);
+        let booked = randint === 1 ? "booked" : "";
+        seats.insertAdjacentHTML(
+          "beforeend",
+          '<input type="checkbox" name="tickets" id="s' +
+            (i + 2) +
+            '" /><label for="s' +
+            (i + 2) +
+            '" class="seat ' +
+            booked +
+            '"></label>'
+        );
+      }
+
+      let tickets = seats.querySelectorAll("input");
+      tickets.forEach((ticket) => {
+        ticket.addEventListener("change", () => {
+          let amount = document.querySelector(".amount").innerHTML;
+          let count = document.querySelector(".count").innerHTML;
+          amount = Number(amount);
+          count = Number(count);
+
+          if (ticket.checked) {
+            count += 1;
+            amount += 200;
+          } else {
+            count -= 1;
+            amount -= 200;
+          }
+          document.querySelector(".amount").innerHTML = amount;
+          document.querySelector(".count").innerHTML = count;
+        });
+      });
+    </script>
+  </body>
 </html>

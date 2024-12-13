@@ -5,7 +5,7 @@
 }
 
 body {
-    width: 100vw;
+    width: 60vw;
     height: 100vh;
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -21,18 +21,6 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-.manage-container {
-    display: flex;
-    align-items: flex-start; /* Căn các phần tử theo trục dọc */
-    gap: 20px; /* Khoảng cách giữa sidebar và content */
-}
-.admin-sidebar {
-    width: 200px;
-    padding: 20px;
-    background: #e9ecef;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-right: 20px;
 }
 h2 {
     text-align: center;
