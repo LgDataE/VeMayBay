@@ -1,14 +1,14 @@
 /* SEARCH_FLIGHT FORM */
 body {
-    width: 60vw;
+    width: 100%;
     height: 100vh;
     font-family: Arial, sans-serif;
-    padding: 20px;
+    padding: 0;
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    margin: 0 auto;
+    margin: 0;
 }
 .container {
     display: inline;

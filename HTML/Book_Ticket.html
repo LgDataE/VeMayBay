@@ -16,13 +16,13 @@ hh<!DOCTYPE html>
     <header>
         <nav>
             <div class="logo">
-                <i class="bx bx-menu bx-md menu-icon"></i>
+                <!-- <i class="bx bx-menu bx-md menu-icon"></i>
                 <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
-                <span class="logo-name">HighFlight</span>
+                <span class="logo-name">HighFlight</span> -->
             </div>
             <div class="sidebar">
                 <div class="logo">
-                    <i class="bx bx-menu bx-md menu-icon"></i>
+                    <!-- <i class="bx bx-menu bx-md menu-icon"></i> -->
                     <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
                     <span class="logo-name">HighFlight</span>
                 </div>
@@ -51,21 +51,21 @@ hh<!DOCTYPE html>
                             </ul>
                         </li>
                         <li class="list">
-                            <a href="#" class="sidebar-link">
+                            <a href="Search_Flight.html" class="sidebar-link">
                                 <i class='bx bxs-file-find'></i>
                                 <span class="link">Tìm chuyến bay</span>
                             </a>
                         </li>
                         <li class="list">
-                            <a href="#" class="sidebar-link">
+                            <a href="Customer.html" class="sidebar-link">
                                 <i class='bx bxs-user-detail' ></i>
                                 <span class="link">Quản lý thông tin khách hàng</span>
                             </a>
                         </li>
                         <li class="list">
-                            <a href="#" class="sidebar-link">
+                            <a href="Book_Ticket.html" class="sidebar-link">
                                 <i class='bx bxs-credit-card-front' ></i>
-                                <span class="link">Thanh toán</span>
+                                <span class="link">Đặt vé</span>
                             </a>
                         </li>
                         <li class="list">
@@ -97,7 +97,7 @@ hh<!DOCTYPE html>
             </div>
             <div class="all-seats">
               <input type="checkbox" name="tickets" id="s1" />
-              <label for="s1" class="seat booked"></label>
+              <label for="s1" class="seat booked first-class"></label>
             </div>
           </div>
           <div class="timings">
@@ -123,6 +123,27 @@ hh<!DOCTYPE html>
                 </tr>
               </table>
             </div>
+              
+            <div class="flight-lists">
+              <h3>Danh sách chuyến bay</h3>
+              <table id="flight-list">
+                  <thead>
+                      <tr>
+                          <th>Mã chuyến bay</th>
+                          <th>Địa điểm khởi hành</th>
+                          <th>Địa điểm đến</th>
+                          <th>Ngày khởi hành</th>
+                          <th>Giờ khởi hành</th>
+                          <th>Giờ đến</th>
+                          <th>Mã máy bay</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Dữ liệu chuyến bay sẽ được thêm vào đây -->
+                  </tbody>
+              </table>
+            </div>
+            
           </div>
         </div>
         <div class="price">
@@ -134,12 +155,20 @@ hh<!DOCTYPE html>
         </div>
       </div>
     </div>
-    
+
     <script>
       let seats = document.querySelector(".all-seats");
+      const seatPrices = {
+        "first-class": 500,
+        "business-class": 350,
+        "economy-class": 200
+      };
+
       for (var i = 0; i < 39; i++) {
+        let classes = ["first-class", "business-class", "economy-class"];
+        let randomClass = classes[Math.floor(Math.random() * classes.length)];
         let randint = Math.floor(Math.random() * 2);
-        let booked = randint === 1 ? "booked" : "";
+        let booked = randint === 1 ? "booked" : "available";
         seats.insertAdjacentHTML(
           "beforeend",
           '<input type="checkbox" name="tickets" id="s' +
@@ -148,6 +177,8 @@ hh<!DOCTYPE html>
             (i + 2) +
             '" class="seat ' +
             booked +
+            ' ' +
+            randomClass +
             '"></label>'
         );
       }
@@ -160,16 +191,36 @@ hh<!DOCTYPE html>
           amount = Number(amount);
           count = Number(count);
 
+          let seatClass = ticket.nextElementSibling.classList.contains("first-class")
+            ? "first-class"
+            : ticket.nextElementSibling.classList.contains("business-class")
+            ? "business-class"
+            : "economy-class";
+
           if (ticket.checked) {
             count += 1;
-            amount += 200;
+            amount += seatPrices[seatClass];
           } else {
             count -= 1;
-            amount -= 200;
+            amount -= seatPrices[seatClass];
           }
           document.querySelector(".amount").innerHTML = amount;
           document.querySelector(".count").innerHTML = count;
         });
+      });
+
+        document.querySelector(".price button").addEventListener("click", () => {
+        let count = Number(document.querySelector(".count").innerHTML);
+
+        if (count > 0) {
+          // Hiển thị thông báo đặt vé thành công
+          alert("Bạn đã đặt vé thành công!");
+
+          // Chuyển hướng đến form HTML khác
+          window.location.href = "Invoice.html"; 
+        } else {
+          alert("Vui lòng chọn ít nhất một vé trước khi đặt.");
+        }
       });
     </script>
   </body>

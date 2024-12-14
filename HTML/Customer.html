@@ -16,13 +16,13 @@
     <header>
         <nav>
             <div class="logo">
-                <i class="bx bx-menu bx-md menu-icon"></i>
+                <!-- <i class="bx bx-menu bx-md menu-icon"></i>
                 <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
-                <span class="logo-name">HighFlight</span>
+                <span class="logo-name">HighFlight</span> -->
             </div>
             <div class="sidebar">
                 <div class="logo">
-                    <i class="bx bx-menu bx-md menu-icon"></i>
+                    <!-- <i class="bx bx-menu bx-md menu-icon"></i> -->
                     <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
                     <span class="logo-name">HighFlight</span>
                 </div>
@@ -131,5 +131,48 @@
             </form>
         </div>
     </div>
+    
+    <div id="overlay"></div>
+    <div id="popup">
+        <p id="popupMessage"></p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <script>
+        function redirectToBookFlight() {
+        window.location.href = "book_flight.html"; // Chuyển hướng đến trang book_flight.html
+    }
+        $(document).ready(function () {
+            $("#customerForm").on("submit", function (e) {
+                e.preventDefault(); // Ngăn tải lại trang
+
+                // Gửi dữ liệu qua AJAX
+                $.ajax({
+                    url: "../process/save_customer.php",
+                    method: "POST",
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        showPopup(response); // Hiển thị pop-up với phản hồi
+                    },
+                    error: function () {
+                        showPopup("Đã xảy ra lỗi! Không thể lưu thông tin.");
+                    }
+                });
+            });
+        });
+
+        // Hàm hiển thị pop-up
+        function showPopup(message) {
+            $("#popupMessage").text(message);
+            $("#overlay").fadeIn();
+            $("#popup").fadeIn();
+        }
+
+        // Hàm đóng pop-up
+        function closePopup() {
+            $("#popup").fadeOut();
+            $("#overlay").fadeOut();
+        }
+    </script>
 </body>
 </html>
