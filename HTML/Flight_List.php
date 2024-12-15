@@ -1,10 +1,14 @@
+<?php
+session_start();
+$flights = isset($_SESSION['flights']) ? $_SESSION['flights'] : [];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Personal Information</title>
-    <link rel="stylesheet" href="../CSS/book_flight.css">
+    <link rel="stylesheet" href="../CSS/flight_list.css">
     <link rel="stylesheet" href="../CSS/sidebar.css">
     <link rel="stylesheet" href="../Bootstrap/css/bootstrap.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -25,7 +29,6 @@
                     <img src="../assets/image/Logo.png" alt="" style="height: 50px;">
                     <span class="logo-name">HighFlight</span>
                 </div>
-
                 <div class="sidebar-name">
                     <h5>Nhân Viên</h5>
                 </div>
@@ -109,39 +112,69 @@
 
         <!-- FORM -->
             <div class="container">
-                <h2>Chọn Thông Tin Vé Máy Bay</h2>
-                <form action="../process/find_flight.php" method="POST">
-                    <div class="flex-group">
-                        <div class="form-group">
-                            <label for="departure">Địa điểm đi:</label>
-                            <input type="text" id="departure" name="departure" required>
+                <h2>Thông Tin Vé Máy Bay</h2>
+                <?php if (!empty($flights)): ?>
+        <ul class="list-view">
+            <?php foreach ($flights as $flight): ?>
+                <li class="list-view-item">
+                    <div class="list-content">
+                        <div class="flight_header">
+                            <h1 class="list-title"><?= htmlspecialchars($flight['MaChuyenBay']) ?></h1>
+                            <p class="list-description">From: <?= htmlspecialchars($flight['DiaDiemKhoiHanh']) ?></p>
+                            <p class="list-description">To: <?= htmlspecialchars($flight['DiaDiemDen']) ?></p>
                         </div>
-                        <div class="form-group">
-                            <label for="destination">Địa điểm tới:</label>
-                            <input type="text" id="destination" name="destination" required>
+                        <div class="flight_time">
+                             <p class="list-description date1">Ngày bay: <?= htmlspecialchars($flight['NgayKhoiHanh']->format('d/m/Y')) ?></p>
+                            <p class="list-description flight_time"><?= htmlspecialchars($flight['GioKhoiHanh']->format('H:i')) ?></p>
+                            <p style="font-size: 15px; margin-top:5px; margin-right:10px; margin-bottom: 0">đến</p>
+                            <p class="list-description"><?= htmlspecialchars($flight['GioDen']->format('H:i')) ?></p>
                         </div>
+                       
                     </div>
-                    <div class="flex-group">
-                        <div class="form-group">
-                            <label for="depart_date">Ngày bay:</label>
-                            <input type="date" id="depart_date" name="departure_date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="return_date">Ngày về:</label>
-                            <input type="date" id="return_date" name="return_date" required>
-                        </div>
+                    <div class="list-action">
+                    <button onclick="saveSessionAndRedirect('<?= htmlspecialchars($flight['MaChuyenBay']) ?>', '<?= htmlspecialchars($flight['NgayKhoiHanh']->format('Y-m-d')) ?>')">
+                Đặt chỗ ngồi
+            </button>
                     </div>
-                   
-                    <div class="form-group radio-group">
-                        <label>Chọn loại chuyến bay:</label>
-                        <label><input type="radio" name="roundTrip" value="yes"> Khứ hồi</label>
-                        <label><input type="radio" name="roundTrip" value="no" checked> Một chiều</label>
-                    </div>
-                    <div class="button-group">
-                        <button type="submit">Tiếp tục</button>
-                    </div>
-                </form>
+                </li>
+            <?php endforeach; ?>
+            <?php else: ?>
+        <p>Không có chuyến bay nào khớp với tìm kiếm của bạn.</p>
+    <?php endif; ?>
+        </ul>
             </div>
         </div>
+        <script>
+    function saveSessionAndRedirect(maChuyenBay, ngayKhoiHanh) {
+        // Tạo một object chứa dữ liệu
+        const flightData = {
+            MaChuyenBay: maChuyenBay,
+            NgayKhoiHanh: ngayKhoiHanh
+        };
+
+        // Gửi dữ liệu bằng fetch API
+        fetch('../process/select_seat.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(flightData)
+        })
+        .then(response => response.json()) // Nhận phản hồi JSON
+        .then(data => {
+            if (data.success) {
+                // Chuyển hướng tới Book_Ticket.html nếu thành công
+                window.location.href = '../HTML/Book_Ticket.html';
+            } else {
+                alert("Lỗi: " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Lỗi:", error);
+            alert("Đã xảy ra lỗi, vui lòng thử lại.");
+        });
+    }
+</script>
+
 </body>
 </html>

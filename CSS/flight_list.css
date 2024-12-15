@@ -1,0 +1,82 @@
+.list-view {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+}
+.list-view-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+}
+.list-view-item:hover {
+    background-color: #e0f7fa;
+}
+.list-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    background-color: #00796b;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 16px;
+}
+.list-content {
+    flex-grow: 1;
+}
+.list-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+.list-description {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0 0;
+}
+.list-action {
+    margin-left: 15px;
+}
+.list-action button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #00796b;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.list-action button:hover {
+    background-color: #004d40;
+}
+.flight_header, .flight_time{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}   
+.flight_header{
+    gap: 20px;
+}   
+
+.flight_header p {
+    top:0;
+    margin: 0;
+    font-size: 15px;
+}  
+
+.flight_time{
+    margin-right:10px;
+    margin-top:5px
+}
+
+.date1{
+    margin-right:20px
+}

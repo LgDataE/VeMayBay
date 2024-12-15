@@ -3,18 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/CSS/customer.css">
-    <title>Customer Form</title>
+    <title>Customer</title>
+    <link rel="stylesheet" href="../CSS/customer.css">
+    <link rel="stylesheet" href="../CSS/sidebar.css">
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="bx bx-menu bx-md menu-icon"></i>
+                <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
+                <span class="logo-name">HighFlight</span>
+            </div>
+            <div class="sidebar">
+                <div class="logo">
+                    <i class="bx bx-menu bx-md menu-icon"></i>
+                    <img src="/assets/image/Logo.png" alt="" style="height: 50px;">
+                    <span class="logo-name">HighFlight</span>
+                </div>
+
+                <div class="sidebar-name">
+                    <h5>Nhân Viên</h5>
+                </div>
+                <div class="sidebar-content">
+                    <ul class="lists">
+                        <li class="list">
+                            <a href="Update_Personal_Info.html" class="sidebar-link">
+                                <i class='bx bxs-info-circle'></i>
+                                <span class="link">Đổi thông tin cá nhân</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#" class="sidebar-link">
+                                <i class='bx bxs-coupon'></i>
+                                <span class="link">Quản lý thông tin vé</span>
+                            </a>
+                            <ul class="drop-down">
+                                <li><a href="">Tạo</a></li>
+                                <li><a href="">Xoá</a></li>
+                                <li><a href="">Cập nhật</a></li>
+                                <li><a href="">Xem</a></li>
+                            </ul>
+                        </li>
+                        <li class="list">
+                            <a href="#" class="sidebar-link">
+                                <i class='bx bxs-file-find'></i>
+                                <span class="link">Tìm chuyến bay</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#" class="sidebar-link">
+                                <i class='bx bxs-user-detail' ></i>
+                                <span class="link">Quản lý thông tin khách hàng</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#" class="sidebar-link">
+                                <i class='bx bxs-credit-card-front' ></i>
+                                <span class="link">Thanh toán</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a href="#" class="sidebar-link">
+                                <i class='bx bxs-note'></i>
+                                <span class="link">Quản lý hoá đơn</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        function getCurrentInformation() {
+            const email = document.getElementById('employee-email').value;
+            const phonenumber =  document.getElementById('employee-phone-number').value;
+            const address = document.getElementById('employee-address').value;
+
+            document.getElementById('currentEmail').value = email;
+            document.getElementById('currentPhoneNumber').value = phonenumber;
+            document.getElementById('currentAddress').value = address;
+        }
+    </script>
+
+    <script>
+        const navBar = document.querySelector("nav"),
+            menuBtns = document.querySelectorAll(".menu-icon"),
+            overlay = document.querySelector(".overlay");
+
+        menuBtns.forEach((menuBtn) => {
+            menuBtn.addEventListener("click", () => {
+                navBar.classList.toggle("open");
+            });
+        });
+
+        overlay.addEventListener("click", () => {
+            navBar.classList.remove("open");
+        });
+    </script>
+    
     <div class="cus-container">
         <h2 class="cus-title">Customer</h2>
         <div class="form-container">
-            <form action="">
+            <div id="message" style="display:none; padding: 10px; margin-bottom: 10px; border: 1px solid; border-radius: 5px;"></div>
+
+            <form id="customerForm">
                 <div class="input-name">
                     <i class="fa fa-user lock"></i>
-                    <input type="text" placeholder="Name" class="text-name">
+                    <input type="text" name="name" placeholder="Name" class="text-name">
+                </div>
+
+                <div class="input-name">
+                    <i class="fa fa-birthday-cake lock"></i>
+                    <input type="text" name="date_of_birth" placeholder="Date of birth" class="text-name">
                 </div>
 
                 <div class="gender-selection">
@@ -24,24 +131,72 @@
                 </div>
 
                 <div class="input-name">
+                    <i class="fa fa-tag lock"></i>
+                    <input type="text" name="nationality" placeholder="Nationality" class="text-name">
+                </div>
+
+                <div class="input-name">
                     <i class="fa fa-envelope lock"></i>
-                    <input type="text" placeholder="Email" class="text-name">
-                </div>
-             
-                <div class="input-name">
-                    <i class="fa fa-phone lock"></i>
-                    <input type="text" placeholder="Phone" class="text-name">
+                    <input type="text" name="email" placeholder="Email" class="text-name">
                 </div>
 
                 <div class="input-name">
-                    <i class="fa fa-globe lock"></i>
-                    <input type="text" placeholder="Address" class="text-name">
+                    <i class="fa fa-envelope lock"></i>
+                    <input type="text" name="phone" placeholder="PhoneNumber" class="text-name">
                 </div>
 
-                <button type="submit" value="Update" class="btnUpdate"> Cập nhật</button>
-                <button type="submit" value="Save" class="btnSave"> Lưu thông tin</button>
+                <div class="input-name">
+                    <i class="fa fa-id-card lock"></i>
+                    <input type="text" name="id" placeholder="ID" class="text-name">
+                </div>
+                <div class="btn_save_info">
+                    <button type="submit" value="Save" class="btnSave">Lưu thông tin</button>
+                </div>
             </form>
         </div>
     </div>
+
+    <div id="overlay"></div>
+    <div id="popup">
+        <p id="popupMessage"></p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <script>
+        function redirectToBookFlight() {
+        window.location.href = "book_flight.html"; // Chuyển hướng đến trang book_flight.html
+    }
+        $(document).ready(function () {
+            $("#customerForm").on("submit", function (e) {
+                e.preventDefault(); // Ngăn tải lại trang
+
+                // Gửi dữ liệu qua AJAX
+                $.ajax({
+                    url: "../process/save_customer.php",
+                    method: "POST",
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        showPopup(response); // Hiển thị pop-up với phản hồi
+                    },
+                    error: function () {
+                        showPopup("Đã xảy ra lỗi! Không thể lưu thông tin.");
+                    }
+                });
+            });
+        });
+
+        // Hàm hiển thị pop-up
+        function showPopup(message) {
+            $("#popupMessage").text(message);
+            $("#overlay").fadeIn();
+            $("#popup").fadeIn();
+        }
+
+        // Hàm đóng pop-up
+        function closePopup() {
+            $("#popup").fadeOut();
+            $("#overlay").fadeOut();
+        }
+    </script>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <!-- Header -->
     <header>
         <div class="navbar">
-            <img src="../assets/image/Logo.jpeg" alt="" style="height: 100px;">
+            <img src="../assets/image/Logo.png" alt="" style="height: 100px;">
         </div>
     </header>
         <div class="manage-container">
@@ -18,11 +18,11 @@
             <div class="admin-sidebar">
                 <h2>Nhân Viên</h2>
                 <ul>
-                    <li><a href="Update_Personal_Info.html">Đổi thông tin cá nhân</a></li>
+                    <li><a href="../HTML/Update_Personal_Info.php">Đổi thông tin cá nhân</a></li>
                     <li>
                         <a href="#">Quản lý thông tin vé</a>
                         <div class="drop-down">
-                            <a href="">Tạo</a>
+                            <a href="../HTML/Book_Flight.html">Tạo</a>
                             <a href="">Xóa</a>
                             <a href="">Cập nhật</a>
                             <a href="">Xem</a>
@@ -36,5 +36,22 @@
                 </ul>
             </div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Tạo đối tượng FormData để gửi mã nhân viên
+                const formData = new FormData();
+                formData.append('MaNV', "<?php echo isset($_SESSION['MaNV']) ? $_SESSION['MaNV'] : ''; ?>");
+        
+                // Gửi yêu cầu đến select_personal.php
+                fetch('../process/select_personal.php', {
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then((response) => response.json()) // Chuyển đổi phản hồi thành JSON
+            });
+        </script>
+        
+            
 </body>
 </html>
