@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý</title>
+    <link rel="stylesheet" href="/CSS/invoice.css">
+    <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="/Bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="booking-container">
+      <div class="header">
+        <div class="logo-text">HighFlight</div>
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/9a1f85deaf41c68c1397a3ccb07af37c66d117886ee86997d02b3bc40d9590ad?placeholderIfAbsent=true&apiKey=0f3be47d9f6c4b9f97cbea8878144f9f" alt="HighFlight Logo" class="logo-image" />
+      </div>
+   
+      <div class="row py-1">
+        <div class="col-8">
+          <div class="info-row">
+            <div class="section-title col">Booking Information</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label col-5">Status</div>
+            <div class="info-value col-7">Confirmed</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label col-5">Booking Date</div>
+            <div class="info-value col-7">01/01/2024</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label col-5">Full Name</div>
+            <div class="info-value col-7">Nguyen Van A</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label col-5">Email</div>
+            <div class="info-value col-7">nguyenvanA@gmail.com</div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="info-row">
+            <div class="section-title col">Mã hoá đơn</div>
+          </div>
+          <div class="info-row">
+            <div class="info-value col">4ZOHCQ</div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="info-row">
+        <div class="section-title">Passenger(s) Information</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-header">Passenger Name(s)</div>
+        <div class="table-header">Seat(s)</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-cell">Nguyen Van A</div>
+        <div class="table-cell">HF102--17A</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-cell">Tran Thi B</div>
+        <div class="table-cell">HF102--17B</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="section-title">Flight Information</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-header">Flight Number</div>
+        <div class="table-header">Date</div>
+        <div class="table-header">Depart</div>
+        <div class="table-header">Arrive</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-cell">HF102</div>
+        <div class="table-cell">Jan, 01, 2024</div>
+        <div class="table-cell">12:00 - Ho Chi Minh</div>
+        <div class="table-cell">14:00 - Ha Noi</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="section-title">Fees</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-header">No</div>
+        <div class="table-header">Passenger</div>
+        <div class="table-header">Service</div>
+        <div class="table-header">Quantity</div>
+        <div id="amount-header" class="table-header">Amount</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-cell">1</div>
+        <div class="table-cell">Nguyen Van A</div>
+        <div class="table-cell">ECO-Seat</div>
+        <div class="table-cell">1</div>
+        <div class="table-amount-cell">1,000,000</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-cell">2</div>
+        <div class="table-cell">Nguyen Van A</div>
+        <div class="table-cell">Coffee-Drink</div>
+        <div class="table-cell">1</div>
+        <div class="table-amount-cell">35,000</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-cell">3</div>
+        <div class="table-cell">Nguyen Van A</div>
+        <div class="table-cell">Flight Services</div>
+        <div class="table-cell">1</div>
+        <div class="table-amount-cell">600,000</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-cell">4</div>
+        <div class="table-cell">Tran Thi B</div>
+        <div class="table-cell">ECO-Seat</div>
+        <div class="table-cell">1</div>
+        <div class="table-amount-cell">1,000,000</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-cell">5</div>
+        <div class="table-cell">Tran Thi B</div>
+        <div class="table-cell">Flight Services</div>
+        <div class="table-cell">1</div>
+        <div class="table-amount-cell">600,000</div>
+      </div>
+    
+      <div class="total-row">
+        <div class="total-label">Total Amount:</div>
+        <div class="total-amount">3,235,000</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="section-title">Payment</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-header">Payment Date</div>
+        <div class="table-header">Payment Type</div>
+        <div id="amount-header" class="table-header">Amount</div>
+      </div>
+    
+      <div class="info-row">
+        <div class="table-cell">Dec, 15, 2023</div>
+        <div class="table-cell">Cash</div>
+        <div class="table-amount-cell">3,235,000</div>
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+#order-form {
+  width: 400px;
+  height: 90vh;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  overflow-y: scroll;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#order-form h3 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.section {
+  margin: 50px 0;
+}
+
+#order-form .section h4 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.item-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+}
+
+.item {
+  width: 100px;
+  text-align: center;
+}
+
+.item span {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+}
+
+.quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.quantity-control button {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quantity-control button:hover {
+  background: #ddd;
+}
+
+.quantity-control input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+#order-form button[type='submit'] {
+  width: 100%;
+}
