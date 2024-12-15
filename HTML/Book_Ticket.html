@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Booking</title>
+    <link rel="stylesheet" href="../CSS/sidebar.css" />
+    <!-- <link rel="stylesheet" href="../CSS/book_ticket.css" /> -->
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+    <style>
+      .seat-row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .seat {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .first-class {
+        background-color: #ffcccb; /* Red for First Class */
+      }
+
+      .business-class {
+        background-color: #d6a5fc; /* Purple for Business Class */
+      }
+
+      .economy-class {
+        background-color: #d3d3d3; /* Gray for Economy Class */
+      }
+
+      .booked {
+        background-color: #6c757d !important; /* Gray for booked seats */
+        cursor: not-allowed;
+      }
+
+      .available {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="../assets/image/Logo.png" alt="" style="height: 50px" />
+          <span class="logo-name">HighFlight</span>
+        </div>
+        <div class="sidebar">
+          <div class="sidebar-name">
+            <h5>Nhân Viên</h5>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="center">
+      <div class="tickets">
+        <div class="ticket-selector">
+          <div class="head">
+            <div class="title">Book Ticket</div>
+          </div>
+          <div class="seats">
+            <div class="status">
+              <div class="item">Available</div>
+              <div class="item">Booked</div>
+              <div class="item">First-class</div>
+              <div class="item">Business-class</div>
+              <div class="item">Economy-class</div>
+            </div>
+            <div class="all-seats" id="seatContainer">
+              <!-- Seats will be dynamically generated here -->
+            </div>
+          </div>
+        </div>
+        <div class="price">
+          <div class="total">
+            <span><span class="count">0</span> Tickets</span>
+            <div class="amount">0</div>
+          </div>
+          <button type="button">Book</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const seatContainer = document.getElementById("seatContainer");
+
+      // Fetch seat data from select_seat.php
+      fetch("../process/select_seat.php")
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            const seats = data.seats; // Array of seats from the database
+            renderSeats(seats); // Render seats based on data
+          } else {
+            alert("Không thể tải dữ liệu chỗ ngồi: " + data.message);
+          }
+        })
+        .catch((error) => {
+          console.error("Lỗi khi tải dữ liệu chỗ ngồi:", error);
+        });
+
+      // Render seats dynamically
+      function renderSeats(seats) {
+        // Define seat rows
+        const seatRows = ["D", "C", "B", "A"];
+        const seatColumns = 11; // Maximum columns are 11 as per your data
+        const seatMap = {};
+
+        // Organize seats into rows
+        seats.forEach((seat) => {
+          const row = seat.SoGhe.slice(-1); // Extract the row (A, B, C, D)
+          const col = parseInt(seat.SoGhe.slice(0, -1)); // Extract the column number
+          if (!seatMap[row]) {
+            seatMap[row] = {};
+          }
+          seatMap[row][col] = seat;
+        });
+
+        // Render rows and seats
+        seatRows.forEach((row) => {
+          const rowDiv = document.createElement("div");
+          rowDiv.className = "seat-row";
+
+          for (let col = 1; col <= seatColumns; col++) {
+            const seatData = seatMap[row] && seatMap[row][col];
+            const seatDiv = document.createElement("div");
+
+            if (seatData) {
+              seatDiv.className = `seat ${
+                seatData.HangGhe === "Hạng Nhất"
+                  ? "first-class"
+                  : seatData.HangGhe === "Hạng Thương Gia"
+                  ? "business-class"
+                  : "economy-class"
+              } ${seatData.TinhTrang === "Trống" ? "available" : "booked"}`;
+              seatDiv.innerText = seatData.SoGhe;
+
+              if (seatData.TinhTrang === "Trống") {
+                seatDiv.onclick = () => selectSeat(seatData.SoGhe);
+              }
+            } else {
+              seatDiv.className = "seat empty"; // For empty seats
+            }
+
+            rowDiv.appendChild(seatDiv);
+          }
+
+          seatContainer.appendChild(rowDiv);
+        });
+      }
+
+      // Handle seat selection
+      function selectSeat(seatId) {
+        alert(`Bạn đã chọn ghế: ${seatId}`);
+        // Implement further logic for seat selection if needed
+      }
+    </script>
+  </body>
+</html>
